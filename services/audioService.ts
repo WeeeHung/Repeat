@@ -46,6 +46,11 @@ class AudioService {
         this.init();
         if (!this.audioContext || !this.gainNode) return;
 
+        // Resume AudioContext if it's suspended (required for mobile browsers)
+        if (this.audioContext.state === 'suspended') {
+            await this.audioContext.resume();
+        }
+
         try {
             const audioBytes = decodeBase64(base64Audio);
             const audioBuffer = await decodePcmData(audioBytes, this.audioContext, 24000, 1);
