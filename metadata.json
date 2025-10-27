@@ -1,0 +1,7 @@
+{
+  "name": "Repeat: AI Workout Coach",
+  "description": "Repeat is your AI home workout scheduler and coach. It automatically plans your daily workouts, provides voice-guided sessions with music and timers, and adapts to your feedback using only dumbbells and push-up bars.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
