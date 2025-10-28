@@ -202,6 +202,7 @@ export default function App() {
 
 
     const handleFetchWorkout = useCallback(async (isTired = false) => {
+        audioService.unlockAudio(); // Unlock audio on the first user gesture
         setStatus('loading');
         setErrorMessage(null);
         
@@ -228,6 +229,7 @@ export default function App() {
     const handleStartWorkout = () => {
         if (!workoutPlan) return;
 
+        audioService.unlockAudio(); // Also unlock here as a fallback
         speak(workoutPlan.voice_script.intro);
         
         setCurrentExerciseIndex(0);
